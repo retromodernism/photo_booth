@@ -1,0 +1,30 @@
+@import "./../variables.scss";
+
+.seo {
+  .seo__title {
+    margin-bottom: 20px;
+    
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 53px;
+
+    color: #131313;
+    .seo__title_red {
+      color: $color1;
+    }
+  }
+  .seo__text {
+    font-family: Work Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 130%;
+
+    color: #131313;
+    .seo__text_red {
+      color: $color1;
+    }
+  }
+}

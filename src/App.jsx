@@ -3,6 +3,7 @@ import "./App.scss";
 import Header from "./components/header";
 import React from "react";
 import Video from "./components/video";
+import Seo from "./components/seo";
 
 const App = (props) => {
   return (
@@ -10,6 +11,7 @@ const App = (props) => {
       <Header />
       <main className="main container">
         <Video videoId={"crjugtkXZN4"} />
+        <Seo />
       </main>
     </React.Fragment>
   );
