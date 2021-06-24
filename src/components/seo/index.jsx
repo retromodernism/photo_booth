@@ -2,7 +2,7 @@ import "./index.scss";
 
 const Seo = (props) => {
   return (
-    <section className="seo">
+    <section className="seo container">
       <h1 className="seo__title">
         <span className="seo__title_red">Фото на</span> праздник
       </h1>
