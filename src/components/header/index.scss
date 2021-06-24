@@ -1,8 +1,13 @@
 @import "./../variables";
 
 .header {
-  height: 100px;
+  height: 80px;
   padding: 10px 12px;
+
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background: #ffffff;
   .header__link {
   }
   .header__logo {
