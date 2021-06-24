@@ -4,6 +4,8 @@ import Option from "./option";
 import RentTimeBtn from "./rentTimeBtn";
 import Button from "@material-ui/core/Button";
 
+import { useState } from "react";
+
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.scss";
@@ -20,7 +22,42 @@ const swiperParams = {
   slidesPerView: "auto",
 };
 
+const rentTimeList = [
+  {
+    title: "1 час",
+    value: 1,
+    active: true,
+  },
+  {
+    title: "2 часа",
+    value: 2,
+    active: false,
+  },
+  {
+    title: "3 часа",
+    value: 3,
+    active: false,
+  },
+  {
+    title: "5 часов",
+    value: 5,
+    active: false,
+  },
+  {
+    title: "выставка 2 дня",
+    value: 48,
+    active: false,
+  },
+  {
+    title: "выставка 3 дня",
+    value: 72,
+    active: false,
+  },
+];
+
 const Card = ({ photoes, title, size, price }) => {
+  const [rentList, setRentList] = useState(rentTimeList);
+
   return (
     <div className="card">
       <Swiper className="card__swiper" {...swiperParams}>
@@ -64,37 +101,22 @@ const Card = ({ photoes, title, size, price }) => {
       <div className="card__rent-time">
         <h3 className="card__rent-time-title">Укажите время аренды</h3>
         <div className="card__rent-time-buttons">
-          <RentTimeBtn
-            className="card__rent-time-button"
-            title="1 час"
-            value={1}
-            active={true}
-          />
-          <RentTimeBtn
-            className="card__rent-time-button"
-            title="2 часа"
-            value={2}
-          />
-          <RentTimeBtn
-            className="card__rent-time-button"
-            title="3 часа"
-            value={3}
-          />
-          <RentTimeBtn
-            className="card__rent-time-button"
-            title="5 часов"
-            value={5}
-          />
-          <RentTimeBtn
-            className="card__rent-time-button"
-            title="выставка 2 дня"
-            value={48}
-          />
-          <RentTimeBtn
-            className="card__rent-time-button"
-            title="выставка 3 дня"
-            value={72}
-          />
+          {rentList.map(({ title, active }, index) => (
+            <RentTimeBtn
+              className="card__rent-time-button"
+              title={title}
+              active={active}
+              key={index}
+              onClick={() => {
+                const newRentList = rentList.map((item) => ({
+                  ...item,
+                  active: false,
+                }));
+                newRentList[index].active = true;
+                setRentList(newRentList);
+              }}
+            />
+          ))}
         </div>
       </div>
       <div className="card__footer">
@@ -105,7 +127,7 @@ const Card = ({ photoes, title, size, price }) => {
           className="card__submit"
           style={{
             fontFamily: "Roboto",
-            fontWeight: 'bold',
+            fontWeight: "bold",
             fontSize: 18,
             lineHeight: "21px",
             textAlign: "center",

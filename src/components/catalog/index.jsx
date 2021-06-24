@@ -39,9 +39,11 @@ const Catalog = (props) => {
       </div>
       <Card
         photoes={[photo, photo, photo, photo, photo]}
-        title={"Фотобудка с ширмой"}
+        title={"Фотобудка с ширмой #1"}
         size={"2м x 1.5м x 2 м"}
         price={17000}
+        id={1}
+        key={1}
       />
       <div style={{ height: 500 }}></div>
     </section>
