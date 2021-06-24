@@ -1,5 +1,6 @@
-import plug from "./plug";
+// import plug from "./plug";
+import cards from "./cards";
 
-const rootReducers = { plug };
+const rootReducers = { cards };
 
 export default rootReducers;

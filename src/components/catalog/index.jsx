@@ -3,13 +3,22 @@ import photo from "./src/photo.png";
 import Select from "react-select";
 import Card from "./card";
 
+import { useEffect } from "react";
+
+import { getCards as getCardsAction } from "./../../redux/modules/cards";
+import { connect } from "react-redux";
+
 const sortOptions = [
   { value: "default", label: "По умолчанию" },
   { value: "cheapFirst", label: "Сначала дешевле" },
   { value: "expensiveFirst", label: "Сначала дороже" },
 ];
 
-const Catalog = (props) => {
+const Catalog = ({ cards, getCards }) => {
+  useEffect(() => {
+    getCards();
+  }, []);
+
   return (
     <section className="catalog">
       <h1 className="catalog__title">Фотобудки</h1>
@@ -37,17 +46,21 @@ const Catalog = (props) => {
           }}
         />
       </div>
-      <Card
-        photoes={[photo, photo, photo, photo, photo]}
-        title={"Фотобудка с ширмой #1"}
-        size={"2м x 1.5м x 2 м"}
-        price={17000}
-        id={1}
-        key={1}
-      />
+      {cards.map(({photoes, title, size, price, id}, index) => (
+        <Card
+          photoes={photoes}
+          title={title}
+          size={size}
+          price={price}
+          id={id}
+          key={index}
+        />
+      ))}
       <div style={{ height: 500 }}></div>
     </section>
   );
 };
 
-export default Catalog;
+export default connect((state) => ({ cards: state.cards.cards }), {
+  getCards: getCardsAction,
+})(Catalog);
