@@ -1,0 +1,67 @@
+@import "./../variables.scss";
+
+.catalog {
+  margin-top: 80px;
+
+  .catalog__title {
+    padding-left: 16px;
+    
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 42px;
+
+    color: #131313;
+  }
+  .catalog__selection {
+    padding-left: 16px;
+
+    display: flex;
+    align-items: center;
+
+    .catalog__selection-title {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+
+      color: #131313;
+    }
+    .catalog__select-sort {
+      .catalog__select-sort__control {
+        border: none;
+        background-color: unset;
+        min-height: unset;
+        box-shadow: none;
+        .catalog__select-sort__value-container {
+          padding: unset;
+          .catalog__select-sort__single-value {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+
+            color: #939598;
+          }
+          .catalog__select-sort__input {
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+
+            width: 106px;
+          }
+        }
+        .catalog__select-sort__indicators {
+          .catalog__select-sort__indicator {
+            color: #131313;
+          }
+        }
+      }
+    }
+  }
+}
