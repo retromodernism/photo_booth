@@ -5,8 +5,9 @@ $borderWidth: 3px;
 $borderRadius: 8px;
 
 .video {
+  margin-top: 100px;
   height: 253px;
-  padding: $videoTopOffset 16px 0 16px;
+  padding: $videoTopOffset 0 0 0;
   position: relative;
 
   .video__decoration {
@@ -14,12 +15,12 @@ $borderRadius: 8px;
     fill: $color1;
   }
   .video__elippses {
-    right: 0;
+    right: -16px;
     top: 0;
   }
   .video__elippse {
     bottom: -34.46px;
-    left: 0px;
+    left: -16px;
   }
 
   .video__preview {
