@@ -21,8 +21,6 @@ const Catalog = ({ cards, getCards, sortCards }) => {
     getCards();
   }, []);
 
-  const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
-
   const handleInputChange = (e) => {
     const value = e.value;
     if (
@@ -31,7 +29,6 @@ const Catalog = ({ cards, getCards, sortCards }) => {
       value === "expensiveFirst"
     ) {
       sortCards(value);
-      forceUpdate();
     }
   };
 

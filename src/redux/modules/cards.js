@@ -11,7 +11,7 @@ const defaultState = {
 const reducer = (state = defaultState, { type, payload }) => {
   switch (type) {
     case REFRESH_CARDS:
-      return { ...state, cards: payload };
+      return { ...state, cards: [...payload] };
     default:
       return state;
   }
