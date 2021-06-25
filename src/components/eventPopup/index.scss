@@ -110,7 +110,7 @@
         color: #131313;
       }
       .eventPopup__info-text-wrapper {
-        overflow: scroll;
+        overflow-y: scroll;
         .eventPopup__info-text {
           font-family: "Open Sans";
           font-style: normal;
