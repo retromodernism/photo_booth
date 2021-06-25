@@ -7,6 +7,7 @@ import Seo from "./components/seo";
 import Advantages from "./components/advantages";
 import Catalog from "./components/catalog";
 import Faq from "./components/faq";
+import Events from "./components/events";
 
 const App = (props) => {
   return (
@@ -18,6 +19,7 @@ const App = (props) => {
         <Advantages />
         <Catalog />
         <Faq />
+        <Events />
       </main>
     </React.Fragment>
   );
