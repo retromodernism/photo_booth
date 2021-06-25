@@ -25,11 +25,8 @@ const App = (props) => {
         <Contacts />
         <YMaps>
           <Map
-            defaultState={{ center: [55.75, 37.57], zoom: 9 }}
-            style={{
-              width: "100%",
-              marginTop: "20px",
-            }}
+            defaultState={{ center: [55.673763, 37.734982], zoom: 17 }}
+            width="100%"
           />
         </YMaps>
       </main>
