@@ -9,6 +9,7 @@ import Catalog from "./components/catalog";
 import Faq from "./components/faq";
 import Events from "./components/events";
 import Contacts from "./components/contacts";
+import { YMaps, Map } from "react-yandex-maps";
 
 const App = (props) => {
   return (
@@ -22,6 +23,15 @@ const App = (props) => {
         <Faq />
         <Events />
         <Contacts />
+        <YMaps>
+          <Map
+            defaultState={{ center: [55.75, 37.57], zoom: 9 }}
+            style={{
+              width: "100%",
+              marginTop: "20px",
+            }}
+          />
+        </YMaps>
       </main>
     </React.Fragment>
   );
