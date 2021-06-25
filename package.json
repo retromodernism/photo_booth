@@ -10,6 +10,7 @@
     "netlify-cli": "^3.38.7",
     "node-sass": "4.14.1",
     "react": "^17.0.2",
+    "react-animate-height": "^2.0.23",
     "react-dom": "^17.0.2",
     "react-modal-video": "^1.2.8",
     "react-redux": "^7.2.4",

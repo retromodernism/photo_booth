@@ -1,0 +1,37 @@
+@import "./../../variables.scss";
+
+.leaf {
+  width: 100%;
+  .leaf__button {
+    margin-bottom: 14px;
+    &::after {
+      content: "";
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translate(0, -50%);
+      background: url(./src/arrow.svg) 100% 100% no-repeat;
+    }
+    &.leaf__button_active::after {
+      background: url(./src/arrow-active.svg) 100% 100% no-repeat;
+    }
+  }
+  .leaf__content {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #6a6a6a;
+
+    padding-left: 10px;
+
+    border-left: 1px solid $color1;
+    &.leaf__content_active {
+      margin-bottom: 14px;
+    }
+  }
+}
