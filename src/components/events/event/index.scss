@@ -3,6 +3,7 @@
 .event {
   cursor: pointer;
   margin-top: 20px;
+  -webkit-tap-highlight-color: transparent;
   .event__img {
     max-height: 100%;
     max-width: 100%;

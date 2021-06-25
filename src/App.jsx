@@ -10,6 +10,7 @@ import Faq from "./components/faq";
 import Events from "./components/events";
 import Contacts from "./components/contacts";
 import { YMaps, Map } from "react-yandex-maps";
+import EventPopup from "./components/eventPopup";
 
 const App = (props) => {
   return (
@@ -30,6 +31,7 @@ const App = (props) => {
           />
         </YMaps>
       </main>
+      <EventPopup />
     </React.Fragment>
   );
 };

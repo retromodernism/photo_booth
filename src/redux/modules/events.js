@@ -36,25 +36,25 @@ export const getEvents = () => (dispatch) => {
     if (i < 3) {
       events.push({
         mainPhoto: photo,
-        photoes: [photo, photo, photo, photo, photo],
+        photoes: [photo1, photo, photo1, photo, photo1],
         subtitle: "Услуги",
         title: `Фотобудки, GIF стойка #${i + 1}`,
         description:
           "У нас есть широчайший ассортимент фотобудок на все случаи жизни",
         fullText:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "Lorem ipsum dolor sit amet, consectetur <span style='color: #EE3D48; text-decoration-line: underline;'>adipiscing elit</span>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         publicationDate: "20 Марта 2021",
       });
     } else {
       unshowedEvents.push({
         mainPhoto: photo,
-        photoes: [photo, photo, photo, photo, photo],
+        photoes: [photo1, photo, photo1, photo, photo1],
         subtitle: "Услуги",
         title: `Фотобудки, GIF стойка #${i + 1}`,
         description:
           "У нас есть широчайший ассортимент фотобудок на все случаи жизни",
         fullText:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+          "Lorem ipsum dolor sit amet, consectetur <span style='color: #EE3D48; text-decoration-line: underline;'>adipiscing elit</span>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         publicationDate: "20 Марта 2021",
       });
     }
