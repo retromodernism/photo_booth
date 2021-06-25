@@ -28,6 +28,11 @@
     grid-row-gap: 4px;
 
     margin-top: 20px;
+    &:not(:last-child) {
+      .contactItem__text {
+        border-bottom: 1px solid #d5dae0;
+      }
+    }
     .contactItem__icon {
     }
     .contactItem__title {
@@ -54,7 +59,6 @@
       color: #6a6a6a;
 
       padding-bottom: 20px;
-      border-bottom: 1px solid #d5dae0;
     }
   }
 }
