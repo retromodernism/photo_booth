@@ -3,6 +3,7 @@
 .card {
   padding: 16px 0 16px 16px;
   position: relative;
+  margin-bottom: 30px;
   &::after {
     content: "";
     position: absolute;
@@ -140,6 +141,7 @@
   }
   .card__footer {
     margin-top: 12px;
+    padding-right: 16px;
     display: flex;
     justify-content: space-between;
     .card__price {

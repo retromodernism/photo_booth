@@ -1,11 +1,13 @@
 import "./index.scss";
-import photo from "./src/photo.png";
-import Select from "react-select";
+import AsyncSelect from "react-select";
 import Card from "./card";
 
-import { useEffect } from "react";
+import { useEffect, useReducer } from "react";
 
-import { getCards as getCardsAction } from "./../../redux/modules/cards";
+import {
+  getCards as getCardsAction,
+  sortCards as sortCardsAction,
+} from "./../../redux/modules/cards";
 import { connect } from "react-redux";
 
 const sortOptions = [
@@ -14,17 +16,31 @@ const sortOptions = [
   { value: "expensiveFirst", label: "Сначала дороже" },
 ];
 
-const Catalog = ({ cards, getCards }) => {
+const Catalog = ({ cards, getCards, sortCards }) => {
   useEffect(() => {
     getCards();
   }, []);
+
+  const [ignored, forceUpdate] = useReducer((x) => x + 1, 0);
+
+  const handleInputChange = (e) => {
+    const value = e.value;
+    if (
+      value === "default" ||
+      value === "cheapFirst" ||
+      value === "expensiveFirst"
+    ) {
+      sortCards(value);
+      forceUpdate();
+    }
+  };
 
   return (
     <section className="catalog">
       <h1 className="catalog__title">Фотобудки</h1>
       <div className="catalog__selection">
         <div className="catalog__selection-title">Сортировка:</div>
-        <Select
+        <AsyncSelect
           options={sortOptions}
           defaultValue={sortOptions[0]}
           className="catalog__select-sort"
@@ -44,9 +60,10 @@ const Catalog = ({ cards, getCards }) => {
               display: "none",
             }),
           }}
+          onChange={handleInputChange}
         />
       </div>
-      {cards.map(({photoes, title, size, price, id}, index) => (
+      {cards.map(({ photoes, title, size, price, id }, index) => (
         <Card
           photoes={photoes}
           title={title}
@@ -56,11 +73,11 @@ const Catalog = ({ cards, getCards }) => {
           key={index}
         />
       ))}
-      <div style={{ height: 500 }}></div>
     </section>
   );
 };
 
 export default connect((state) => ({ cards: state.cards.cards }), {
   getCards: getCardsAction,
+  sortCards: sortCardsAction,
 })(Catalog);

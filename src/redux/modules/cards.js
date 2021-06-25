@@ -2,7 +2,7 @@ import photo from "./../../components/catalog/src/photo.png";
 
 const moduleName = "cards";
 
-const GET_CARDS = `${moduleName}/GET_CARDS`;
+const REFRESH_CARDS = `${moduleName}/REFRESH_CARDS`;
 
 const defaultState = {
   cards: [],
@@ -10,7 +10,7 @@ const defaultState = {
 
 const reducer = (state = defaultState, { type, payload }) => {
   switch (type) {
-    case GET_CARDS:
+    case REFRESH_CARDS:
       return { ...state, cards: payload };
     default:
       return state;
@@ -35,7 +35,24 @@ export const getCards = () => async (dispatch) => {
   await new Promise((res) => setTimeout(res, 1000));
 
   dispatch({
-    type: GET_CARDS,
+    type: REFRESH_CARDS,
+    payload: cards,
+  });
+};
+
+export const sortCards = (sortKey) => async (dispatch, getState) => {
+  const sortTypes = {
+    default: () => {},
+    cheapFirst: (a, b) => a.price - b.price,
+    expensiveFirst: (a, b) => b.price - a.price,
+  };
+
+  const cards = getState().cards.cards;
+
+  cards.sort(sortTypes[sortKey]);
+
+  dispatch({
+    type: REFRESH_CARDS,
     payload: cards,
   });
 };
