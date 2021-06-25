@@ -8,6 +8,7 @@ import Advantages from "./components/advantages";
 import Catalog from "./components/catalog";
 import Faq from "./components/faq";
 import Events from "./components/events";
+import Contacts from "./components/contacts";
 
 const App = (props) => {
   return (
@@ -20,6 +21,7 @@ const App = (props) => {
         <Catalog />
         <Faq />
         <Events />
+        <Contacts />
       </main>
     </React.Fragment>
   );

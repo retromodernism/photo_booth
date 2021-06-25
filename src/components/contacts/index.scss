@@ -1,0 +1,60 @@
+@import "./../variables.scss";
+
+.contacts {
+  margin-top: 60px;
+  .contacts__subtitle {
+    margin-bottom: 4px;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: $color1;
+  }
+  .contacts__title {
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 36px;
+
+    color: #131313;
+  }
+  .contacts__item {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 4px;
+
+    margin-top: 20px;
+    .contactItem__icon {
+    }
+    .contactItem__title {
+      grid-column: 2;
+      align-self: center;
+
+      font-family: "Roboto Slab";
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 32px;
+
+      color: #131313;
+    }
+    .contactItem__text {
+      grid-column: 2;
+
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 21px;
+
+      color: #6a6a6a;
+
+      padding-bottom: 20px;
+      border-bottom: 1px solid #d5dae0;
+    }
+  }
+}
