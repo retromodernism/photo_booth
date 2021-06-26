@@ -11,6 +11,7 @@ import Events from "./components/events";
 import Contacts from "./components/contacts";
 import { YMaps, Map } from "react-yandex-maps";
 import EventPopup from "./components/eventPopup";
+import SubmitPopup from "./components/submitPopup";
 
 const App = (props) => {
   return (
@@ -32,6 +33,7 @@ const App = (props) => {
         </YMaps>
       </main>
       <EventPopup />
+      <SubmitPopup />
     </React.Fragment>
   );
 };

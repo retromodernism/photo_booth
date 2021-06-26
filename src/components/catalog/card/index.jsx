@@ -6,6 +6,10 @@ import Button from "@material-ui/core/Button";
 
 import { useState } from "react";
 
+import { pickTime as pickTimeAction } from "./../../../redux/modules/cards";
+import { openPhotoBoothPopup as openPhotoBoothPopupAction } from "./../../../redux/modules/popups";
+import { connect } from "react-redux";
+
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.scss";
@@ -22,41 +26,27 @@ const swiperParams = {
   slidesPerView: "auto",
 };
 
-const rentTimeList = [
-  {
-    title: "1 час",
-    value: 1,
-    active: true,
-  },
-  {
-    title: "2 часа",
-    value: 2,
-    active: false,
-  },
-  {
-    title: "3 часа",
-    value: 3,
-    active: false,
-  },
-  {
-    title: "5 часов",
-    value: 5,
-    active: false,
-  },
-  {
-    title: "выставка 2 дня",
-    value: 48,
-    active: false,
-  },
-  {
-    title: "выставка 3 дня",
-    value: 72,
-    active: false,
-  },
-];
+const Card = ({
+  photoes,
+  title,
+  size,
+  price,
+  options,
+  id,
+  rentTimes,
+  timeValue,
+  openPhotoBoothPopup,
+  pickTime,
+}) => {
+  let totalPrice = price;
+  options.forEach(({ picked, price }) => {
+    if (picked) {
+      totalPrice += price;
+    }
+  });
+  totalPrice *= timeValue;
 
-const Card = ({ photoes, title, size, price }) => {
-  const [rentList, setRentList] = useState(rentTimeList);
+  const cardId = id;
 
   return (
     <div className="card">
@@ -75,45 +65,28 @@ const Card = ({ photoes, title, size, price }) => {
       <div className="card__options">
         <h2 className="card__options-title">Доп. опции</h2>
         <div className="card__options-list">
-          <Option
-            className="card__options-option"
-            photo={photoes[0]}
-            title="Разработка макета рамки"
-            price="17 500"
-            key={1}
-          />
-          <Option
-            className="card__options-option"
-            photo={photoes[0]}
-            title="Разработка макета рамки"
-            price="17 500"
-            key={2}
-          />
-          <Option
-            className="card__options-option"
-            photo={photoes[0]}
-            title="Разработка макета рамки"
-            price="17 500"
-            key={3}
-          />
+          {options.map((option, index) => (
+            <Option
+              className="card__options-option"
+              key={index}
+              cardId={id}
+              optionIndex={index}
+              {...option}
+            />
+          ))}
         </div>
       </div>
       <div className="card__rent-time">
         <h3 className="card__rent-time-title">Укажите время аренды</h3>
         <div className="card__rent-time-buttons">
-          {rentList.map(({ title, active }, index) => (
+          {rentTimes.map(({ title, picked, id }, index) => (
             <RentTimeBtn
               className="card__rent-time-button"
               title={title}
-              active={active}
+              active={picked}
               key={index}
               onClick={() => {
-                const newRentList = rentList.map((item) => ({
-                  ...item,
-                  active: false,
-                }));
-                newRentList[index].active = true;
-                setRentList(newRentList);
+                pickTime(cardId, id);
               }}
             />
           ))}
@@ -121,7 +94,7 @@ const Card = ({ photoes, title, size, price }) => {
       </div>
       <div className="card__footer">
         <div className="card__price">
-          {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽"}
+          {totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽"}
         </div>
         <Button
           className="card__submit"
@@ -136,6 +109,7 @@ const Card = ({ photoes, title, size, price }) => {
             color: "#ffffff",
             letterSpacing: "unset",
           }}
+          onClick={() => openPhotoBoothPopup({ cardId })}
         >
           Оставить заявку
         </Button>
@@ -144,4 +118,7 @@ const Card = ({ photoes, title, size, price }) => {
   );
 };
 
-export default Card;
+export default connect(null, {
+  openPhotoBoothPopup: openPhotoBoothPopupAction,
+  pickTime: pickTimeAction,
+})(Card);

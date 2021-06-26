@@ -61,6 +61,20 @@ const reducer = (state = defaultState, { type, payload }) => {
 
 export default reducer;
 
+export const openPhotoBoothPopup = (data = {}) => (dispatch) => {
+  dispatch({
+    type: OPEN_PHOTO_BOOTH_POPUP,
+    payload: data,
+  });
+};
+
+export const closePhotoBoothPopup = () => (dispatch) => {
+  dispatch({
+    type: CLOSE_PHOTO_BOOTH_POPUP,
+    payload: {},
+  });
+};
+
 export const openEventPopup =
   (photoes, subtitle, title, fullText, publicationDate) => (dispatch) => {
     dispatch({

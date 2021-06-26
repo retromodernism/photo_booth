@@ -2,7 +2,7 @@ import "./index.scss";
 import AsyncSelect from "react-select";
 import Card from "./card";
 
-import { useEffect, useReducer } from "react";
+import { useEffect } from "react";
 
 import {
   getCards as getCardsAction,
@@ -60,15 +60,8 @@ const Catalog = ({ cards, getCards, sortCards }) => {
           onChange={handleInputChange}
         />
       </div>
-      {cards.map(({ photoes, title, size, price, id }, index) => (
-        <Card
-          photoes={photoes}
-          title={title}
-          size={size}
-          price={price}
-          id={id}
-          key={index}
-        />
+      {cards.map((card, index) => (
+        <Card {...card} key={index} />
       ))}
     </section>
   );
